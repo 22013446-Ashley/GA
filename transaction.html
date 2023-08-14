@@ -1,0 +1,157 @@
+    <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    
+    Student Name: ASHLEY TEO
+    Student ID: 22013446
+    Class: C369-2D-E63C-A
+    Date/Time Last modified:13/8/2023
+    -->
+    <html lang="en">
+
+    <head>
+    
+        <meta charset="UTF-8">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Money Changer</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <style> 
+        
+      
+    
+            * {
+    
+                box-sizing: border-box;
+    
+            }
+    
+            body {
+    
+                margin: 0;
+                background-color: lightblue;
+                
+             
+                
+    
+            }
+    
+            header {
+    
+                display: flex;
+    
+                justify-content: space-between;
+    
+                align-items: center;
+    
+                background-color: azure;
+    
+            }
+    
+            nav {
+    
+                display: flex;
+    
+                justify-content: space-around;
+    
+                align-items: center;
+    
+                background-color: azure;
+    
+                margin-right: 30px;
+    
+            }
+    
+            nav a {
+    
+                text-decoration: none;
+    
+                color: black;
+    
+                padding: 35px 20px;
+    
+            }
+    
+            .column {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+    }
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-content: right;
+    }
+    
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+    
+        </style>
+    
+    </head>
+    
+    <body>
+    
+        <header>
+    
+            <a href="index.html"><img src="moneychanger.jpg"></a>
+    
+            <nav>
+    
+                <a href="index.html">Home</a>
+    
+                <a href="service.html">Services</a>
+    
+                <a href="singpass.html">Login</a>
+    
+                <a href="AboutUS.html">AboutUS</a>
+    
+            </nav>
+    
+        </header>
+        
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Enter Card Details</title>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        </head>
+        
+        <body class="bg-light" >
+        
+            <div class="d-flex justify-content-center align-items-center min-vh-100">
+                <form action="process_payment.php" method="POST" class="p-4 border rounded bg-white">
+                    <h1 class="mb-4">Enter Card Details</h1>
+        
+                    <label for="cardName">Name on Card:</label>
+                    <input type="text" id="cardName" name="cardName" class="form-control" required>
+        
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" class="form-control" required>
+        
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="text" id="expiryDate" name="expiryDate" class="form-control" placeholder="MM/YY" required>
+        
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" class="form-control" required>
+        
+                    <button type="submit" class="btn btn-primary mt-4" id="submitButton">Submit Payment</button>
+                </form>
+            </div>
+        
+            <script>
+                document.getElementById("submitButton").addEventListener("click", function() {
+                    window.location.href = "endpage.html";
+                });
+            </script>
+        
+        </body>
+        
+        </html>

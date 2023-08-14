@@ -1,0 +1,259 @@
+    <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    
+    Student Name: ASHLEY TEO
+    Student ID: 22013446
+    Class: C369-2D-E63C-A
+    Date/Time Last modified:13/8/2023
+    -->
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Money Changer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style> 
+    
+  
+
+        * {
+
+            box-sizing: border-box;
+
+        }
+
+        body {
+
+            margin: 0;
+            background-color: lightblue;
+         
+            
+
+        }
+
+        header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background-color: azure;
+
+        }
+
+        nav {
+
+            display: flex;
+
+            justify-content: space-around;
+
+            align-items: center;
+
+            background-color: azure;
+
+            margin-right: 30px;
+
+        }
+
+        nav a {
+
+            text-decoration: none;
+
+            color: black;
+
+            padding: 35px 20px;
+
+        }
+
+        .column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-content: right;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="index.html"><img src="moneychanger.jpg"></a>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="service.html">Services</a>
+
+            <a href="singpass.html">Login</a>
+
+            <a href="AboutUS.html">AboutUS</a>
+
+        </nav>
+
+    </header>
+    <body>
+        <form id = "currencyConverterForm">
+        <h1>Currency Exchange</h1>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount">
+        <label for="fromCurrency">From:</label>
+        <select id="fromCurrency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="CNY">CNY</option>
+            <option value="KRW">KRW</option>
+            <option value="CNY">CNY</option>
+            <option value="JPY">JPY</option>
+            <option value="THB">THB</option>
+            <option value="PHP">PHP</option>
+            <option value="INR">INR</option>
+            <option value="AUS">AUS</option>
+            <option value="BND">BND</option>
+            <option value="CAD">CAD</option>
+            <option value="IDR">IDR</option>
+            <option value="RUB">RUB</option>           
+            <option value="SGD">SGD</option>
+            <option value="BRL">BRL</option>
+            <option value="EGP">EGP</option>
+            <option value="KHR">KHR</option>
+            <option value="HKD">HKD</option>
+            <option value="TWD">TWD</option>
+            <option value="MYR">MYR</option>
+            <option value="COP">COP</option>
+            <option value="BDT">BDT</option>
+            <button onclick = "validateAmount()">Convert</button>
+        </form>
+        
+        <p id = "result">Converted amount will apear here.</p>
+        </select>
+        <label for="toCurrency">To:</label>
+        <select id="toCurrency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="CNY">CNY</option>
+            <option value="KRW">KRW</option>
+            <option value="CNY">CNY</option>
+            <option value="JPY">JPY</option>
+            <option value="THB">THB</option>
+            <option value="PHP">PHP</option>
+            <option value="INR">INR</option>
+            <option value="AUS">AUS</option>
+            <option value="BND">BND</option>
+            <option value="CAD">CAD</option>
+            <option value="IDR">IDR</option>
+            <option value="RUB">RUB</option>
+            <option value="SGD">SGD</option>
+            <option value="BRL">BRL</option>
+            <option value="EGP">EGP</option>
+            <option value="KHR">KHR</option>
+            <option value="HKD">HKD</option>
+            <option value="TWD">TWD</option>
+            <option value="MYR">MYR</option>
+            <option value="COP">COP</option>
+            <option value="BDT">BDT</option>
+           
+        </select>
+        <button onclick="validateAmount()">Convert</button>
+        <p id="result">Converted amount will appear here.
+        </p>
+
+        <script>
+            
+            const exchangeRates = {
+                'USD': 0.75,   // USA
+                'EUR': 0.85,  //EUROPE
+                'SGD': 1, // SINGAPORE
+                'CNY': 5.37, // CHINA
+                'PHP': 41.22, //PHILIPPINES 
+                'JPY':105.30, //JAPAN
+                'KRW': 959.85, //S.KOREA
+                'THB': 25.77, //THAILAND
+                'INR': 61.70, //INDIA
+                'AUS': 1.13, //AUSTRALIA
+                'BND': 1, //BRUNEI
+                'CAD': 0.99, //CANADA
+                'IDR': 11324.58, //INDONEISA
+                'MXN': 12.53, //MEXICO
+                'RUB': 68.42, //RUSSIA
+                'BRL': 3.54, //BRAZIL
+                'EGP':23.15,//EGYPT
+                'KHR':3091.47, // COMBODIA 
+                'HKD':5.85, // HONG KONG
+                 'TWD':23.53, // TAIWAN
+                 'MYR':3.40, // MALAYSIA
+                 'COP':3000.90, // COLUMBIA 
+                 'BDT':81.83 // BANGLADESH
+
+
+                
+            };
+        
+            function convertCurrency() {
+                const amount = parseFloat(document.getElementById('amount').value);
+                const fromCurrency = document.getElementById('fromCurrency').value;
+                const toCurrency = document.getElementById('toCurrency').value;
+        
+                // Check if the selected currencies are valid
+                if (isNaN(amount) || !exchangeRates.hasOwnProperty(fromCurrency) || !exchangeRates.hasOwnProperty(toCurrency)) {
+                    document.getElementById('result').textContent = 'Invalid input or unsupported currencies.';
+                    return;
+                }
+        
+                // Perform the currency conversion
+                const exchangeRate = exchangeRates[toCurrency] / exchangeRates[fromCurrency];
+                const convertedAmount = (amount * exchangeRate).toFixed(2);
+                document.getElementById('result').textContent = `${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}`;
+            }
+            function validateAmount() {
+                const amount = parseFloat(document.getElementById('amount').value);
+                if (isNaN(amount) || amount <= 0) {
+                     document.getElementById('result').textContent = 'Please enter a valid amount.';
+                return;
+                }
+                if (amount > 5000) {
+                     document.getElementById('result').textContent = 'Maximum amount reached.'; //make sure it does not go over $5000 SGD
+                     return;
+            }
+                convertCurrency();
+            }
+            function proceedToCheckout() {
+                 const amount = parseFloat(document.getElementById('amount').value);
+                if (isNaN(amount) || amount <= 0 || amount > 5000) {
+                    document.getElementById('result').textContent = 'Please enter a valid amount before proceeding to checkout or ensure amount is below 5000 SGD.';
+                 } else {
+                      window.location.href = "transaction.html"; 
+                 }
+              }
+        </script>
+           <p style = "color:darkgreen; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">CLICK ON THE BUTTON BELOW TO CHECKOUT</p>
+
+           <a href="#" onclick="proceedToCheckout()">
+            <img src="paynow.jpg" alt="checkout here">
+        </a>
+            </body>
+            
+            </html>
+    
